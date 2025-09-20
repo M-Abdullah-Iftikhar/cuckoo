@@ -9,6 +9,8 @@ services:
     volumes:
       - ./cuckoo-tmp/:/tmp/cuckoo-tmp/
       - ./storage/:/cuckoo/storage/
+      - ./modified/conf/cuckoo.conf:/cuckoo/conf/cuckoo.conf
+      - ./modified/conf/virtualbox.conf:/cuckoo/conf/virtualbox.conf
     networks:
       - cuckoo
     env_file:
@@ -26,6 +28,8 @@ services:
     volumes:
       - ./cuckoo-tmp/:/tmp/cuckoo-tmp/
       - ./storage/:/cuckoo/storage/
+      - ./modified/conf/cuckoo.conf:/cuckoo/conf/cuckoo.conf
+      - ./modified/conf/virtualbox.conf:/cuckoo/conf/virtualbox.conf
     networks:
       - cuckoo
     env_file:
@@ -43,6 +47,8 @@ services:
     volumes:
       - ./cuckoo-tmp/:/tmp/cuckoo-tmp/
       - ./storage/:/cuckoo/storage/
+      - ./modified/conf/cuckoo.conf:/cuckoo/conf/cuckoo.conf
+      - ./modified/conf/virtualbox.conf:/cuckoo/conf/virtualbox.conf
     networks:
       - cuckoo
     env_file:
@@ -60,7 +66,7 @@ services:
   #     - cuckoo
 
   mongo:
-    image: mongo
+    image: mongo:4.4.19 # <--- THIS IS THE FIX
     ports:
       - 27017
     volumes:
